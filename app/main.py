@@ -18,7 +18,7 @@ def main():
             if not data:
                 break
             print(data.decode())
-            if (data.split(b"\r\n")[0].split(b" ")[1] != "/"):
+            if (data.split(b"\r\n")[0].split(b" ")[1] != b"/"):
                 response = b"HTTP/1.1 404 Not Found\r\n\r\n"
             else:
                 response = b"HTTP/1.1 200 OK\r\n\r\n"
