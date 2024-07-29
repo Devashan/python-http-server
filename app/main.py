@@ -25,7 +25,7 @@ def main():
                 response = b"HTTP/1.1 200 OK\r\nContent-Type: " + str_type.encode() + b"\r\nContent-Length: " + str(string_length).encode() + b"\r\n\r\n" + echo_string
             # curl -v --header "User-Agent: foobar/1.2.3" http://localhost:4221/user-agent
             elif (data.split(b"\r\n")[0].split(b" ")[1] == b"/user-agent"):
-                user_agent = data.split(b"\r\n")[1].split(b"User-Agent: ")[1]
+                user_agent = data.split(b"\r\n")[3].split(b": ")[1]
                 user_agent_length = len(user_agent)
                 str_type = 'text/plain'
                 response = b"HTTP/1.1 200 OK\r\nContent-Type: " + str_type.encode() + b"\r\nContent-Length: " + str(user_agent_length).encode() + b"\r\n\r\n" + user_agent
